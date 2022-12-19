@@ -83,7 +83,7 @@ export class App extends Component {
         style={{
           margin: '0 auto',
           display: 'flex',
-          width: '50%',
+          width: '60%',
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'start',
