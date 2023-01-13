@@ -115,13 +115,14 @@ export class App extends Component {
           handleChange={value => this.changeFilter(value)}
         />
         <ContactList>
-          {contactList.map(contact => (
-            <ContactItem
-              key={contact.id}
-              contact={contact}
-              onClick={id => this.deleteContact(id)}
-            />
-          ))}
+          {!!contactList &&
+            contactList.map(contact => (
+              <ContactItem
+                key={contact.id}
+                contact={contact}
+                onClick={id => this.deleteContact(id)}
+              />
+            ))}
         </ContactList>
       </div>
     );
