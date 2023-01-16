@@ -6,8 +6,5 @@ export const ContactList = ({ children }) => (
 );
 
 ContactList.propTypes = {
-  children: PropTypes.oneOfType([
-    PropTypes.node,
-    PropTypes.arrayOf(PropTypes.node),
-  ]).isRequired,
+  children: PropTypes.node.isRequired,
 };

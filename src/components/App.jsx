@@ -17,19 +17,17 @@ export class App extends Component {
       const localContacts = JSON.parse(
         localStorage.getItem(LOCAL_STORAGE_CONTACTS)
       );
-      this.setState({ contacts: localContacts });
+      if (!!localContacts) {
+        this.setState({ contacts: localContacts });
+      };
     } catch {}
-    // const localContacts = JSON.parse(
-    //   localStorage.getItem(LOCAL_STORAGE_CONTACTS)
-    // );
-    // if (localContacts) {
-    //   this.setState({ contacts: localContacts });
-    // }
   };
 
-  componentDidUpdate = () => {
+  componentDidUpdate = (prevProps, prevState) => {
     const { contacts } = this.state;
-    localStorage.setItem(LOCAL_STORAGE_CONTACTS, JSON.stringify(contacts));
+    if (prevState.contacts.length !== contacts.length) {
+      localStorage.setItem(LOCAL_STORAGE_CONTACTS, JSON.stringify(contacts));
+    };
   };
 
   handleSubmit = contact => {
